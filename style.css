@@ -2,12 +2,14 @@
 
 body {
     
-    background-color: rgba(0, 0, 255, 0.61);
+    background-image: url('imagens/backgroundHacker.jpg');
+    background-attachment: fixed;
 }
 
 main {
     max-width: 600px;
     margin: auto;
+    padding: 10px;
     background-color: white;
     text-align: justify;
     font-size: 20px; 
@@ -22,13 +24,25 @@ main > section > h1.titulo{
 
 main > section > img.imagens {
     max-width: 500px;
-    margin-left: 2.5em;
+    margin-left: 2em;
 }
 
 main > section > p.paragrafos {
     text-indent: 1em;
     margin-left: 1em;
     margin-right: 1em;
+}
+
+main > section > p.exemplos {
+    margin: 20%;
+    padding: 10px;
+    background-color: lightgray;
+}
+
+main > section > p#main_Exemplo {
+    margin: 20%;
+    background-color: lightgray
+    ;
 }
 
 main > section > p#passos {
