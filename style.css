@@ -29,9 +29,9 @@ main > section > h1.titulo{
     
 }
 
-main > section > img.imagens {
+main > section > div.imagens {
     max-width: 500px;
-    margin-left: 2em;
+    text-align: center;
 }
 
 main > section > p.paragrafos {

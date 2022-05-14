@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco de Dados</title>
+</head>
+<body>
+    <header>
+
+    </header>
+    <main>
+        <h1>Introdução a Banco de dados</h1>
+        <h2>Tipos de Dados</h2>
+        <h3>Tipos Primitivos</h3>
+        <p>Vários tipos primitivos divididos em famílias: <strong>números, data te tempo, literais e especiais.</strong></p>
+        <h3>Numérico</h3>
+        <p><strong>Inteiros</strong> - TinyInt, SmalInt, Int e BigInt. <br> 
+        <strong>Real</strong> - Decimal, Float, Double e Real. <br>
+        <strong>Data/Tempo</strong> - Date, DateTime, TimeStamp, Time, Year.</p>
+        <h3>Literal</h3>
+        <p>
+            <strong>Caractere</strong> - char ou varchar ex: nome varchar(30). <br>
+            <strong>Texto</strong> - TineText, Text, MediumText, LongText. <br>
+            <strong>Binário</strong> - TinyBlob, Blob, MediumBlob, LongBlob. <br>
+            <strong>Coleção</strong> - Enum, Set. <br>
+            <strong>Especial</strong> - Geometry, Point, Polygon, Multipolygon.
+        </p>
+        <h1>Banco de Dados MySql</h1>
+        <p>Sem demora, vamos ao que intereça que são os códigos, vamos codar hehe. Com seu ambiente já configurado siga o passo a passo abaixo para criar seu banco de dados: </p>
+        <p>
+            <strong>CREATE DATABASE</strong> banco; <br>
+            <strong>USE</strong> banco; <br>
+            <strong>CREATE TABLE</strong> parentes ( <br>
+            &nbsp; &nbsp; ID_Parente <strong>int primary key auto_increment,</strong> <br>
+            &nbsp; &nbsp; NOME <strong>varchar(30) not null</strong>, <br>
+            &nbsp; &nbsp; DATA NASCIMENTO <strong>date</strong>, <br>
+            &nbsp; &nbsp; SEXO <strong>enum('M', 'F')</strong>, <br>
+            &nbsp; &nbsp; ALTURA <strong>decimal (3,2)</strong>, <br>
+            &nbsp; &nbsp; PESO <strong>decimal(5,2)</strong>, <br>
+            &nbsp; &nbsp; ENDEREÇO <strong>varchar(40)</strong> <br>
+            );
+            <p>Pronto, voçê já criou um banco de dados e uma tabela que ainda está vazia, agora vou te ensinar inserir dados nessa tabela, siga o exemplo abaixo: </p>
+            <p>
+                <strong>INSERT INTO</strong> parentes <strong>VALUES</strong> <br>
+                (DEFAULT, 'Felipe', '2004-07-24','M','1.75','65','Sobradinho'), <br>
+                (DEFAULT, 'Luciene', '1980-05-22', 'F', '1.58', '78', 'Sobradinho'), <br>
+                (DEFAULT, 'Maurílio', '1981-03-31', 'M', '1.92', '85', 'Sobradinho');
+                <p>Para selecionar tudo da tabela e mostrar voçê digita o comando abaixo: </p>
+                <strong>SELECT * FROM</strong> parentes; <br>
+                Assim ficará a tabela: <br>
+                <table border="1">
+                    <tr border="1">
+                        <td>ID_PARENTE</td>
+                        <td>Nome</td>
+                        <td>DATA DE NASCIMENTO</td>
+                        <td>SEXO</td>
+                        <td>ALTURA</td>
+                        <td>PESO</td>
+                        <td>ENDEREÇO</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Felipe</td>
+                        <td>2004-07-24</td>
+                        <td>M</td>
+                        <td>1.75</td>
+                        <td>65.00</td>
+                        <td>Sobradinho</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Luciene</td>
+                        <td>1980-05-22</td>
+                        <td>F</td>
+                        <td>1.58</td>
+                        <td>78</td>
+                        <td>Sobradinho</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Maurílio</td>
+                        <td>1981-03-31</td>
+                        <td>M</td>
+                        <td>1.92</td>
+                        <td>85</td>
+                        <td>Sobradinho</td>
+                    </tr>
+                </table>
+            </p>
+            
+
+        </p>
+        <h3>Para alterar algum dado na tabela</h3>
+        <p><strong>UPDATE</strong> parentes <strong>SET</strong> peso = "60" <strong>WHERE</strong> ID_ALUNO = "3";</p>
+
+        <h3>Caso voçê queira adicionar alguma coluna na tabela</h3>
+        <p><strong>ALTER TABLE</strong> parentes <strong>ADD COLUMN</strong> ESTADO <strong>VARCHAR(40)</strong>;</p>
+        <p>E caso voçê queira escolher a <strong>posição da tabela, é só adicionar no final do código o comando AFTER</strong> e o nome da coluna que voçê queira que a nova seja depois dela, veja o exemplo abaixo: </p> 
+        <p>ALTER TABLE parentes ADD COLUMN ESTADO VARCHAR(40) <strong>AFTER PESO;</strong></p>
+        <p>Depois é só executar o comando SELECT * FROM parentes e assim ficará a sua tabela: </p>
+        <table border="1">
+            <tr>
+                <td>ID_PARENTE</td>
+                <td>NOME</td>
+                <td>DATA NASCIMENTO</td>
+                <td>SEXO</td>
+                <td>ALTURA</td>
+                <td>PESO</td>
+                <td>ESTADO</td>
+                <td>ENDEREÇO</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Felipe</td>
+                <td>2004-07-24</td>
+                <td>M</td>
+                <td>1.75</td>
+                <td>65.00</td>
+                <td></td>
+                <td>Sobradinho</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Luciene</td>
+                <td>1980-05-22</td>
+                <td>F</td>
+                <td>1.58</td>
+                <td>78</td>
+                <td></td>
+                <td>Sobradinho</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Maurílio</td>
+                <td>1981-03-31</td>
+                <td>M</td>
+                <td>1.92</td>
+                <td>85</td>
+                <td></td>
+                <td>Sobradinho</td>
+            </tr>
+        </table>
+        <h3>Apagar coluna na tabela</h3>
+        <p>se voçê quiser apagar uma coluna de uma tabela do seu banco de dados o comando é o seguinte: </p>
+        <p><strong>ALTER TABLE</strong> parentes <strong>DROP COLUMN</strong> ESTADO;</p>
+        <h3>Alterar tipo da coluna de uma tabela</h3>
+        <p><strong>ALTER TABLE</strong> parentes <strong>MODIFY COLUMN</strong> NOME <strong>VARCHAR(40) FIRST</strong>;</p>
+        <h3>Alterar nome da coluna de uma tabela</h3>
+        <p><strong>ALTER TABLE</strong> parentes <strong>CHANGE COLUMN</strong> DATA NASCIMENTO NASCIMENTO DATE;</p>
+        <h3>Descrever a tabela parentes</h3>
+        <p><strong>DESCRIBE</strong> parentes;</p>
+        <p>assim aparecerá para voçê: <br>
+        <table border="1">
+            <tr>
+                <td>Field</td>
+                <td>Type</td>
+                <td>Null</td>
+                <td>Key</td>
+                <td>Default</td>
+                <td>Extra</td>
+            </tr>
+            <tr>
+                <td>ID_PARENTE</td>
+                <td>int(11)</td>
+                <td>NO</td>
+                <td>PRI</td>
+                <td>NUll</td>
+                <td>auto_increment</td>
+            </tr>
+            <tr>
+                <td>NOME</td>
+                <td>varchar(30)</td>
+                <td>NO</td>
+                <td></td>
+                <td>Null</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>NASCIMENTO</td>
+                <td>date</td>
+                <td>YES</td>
+                <td></td>
+                <td>NULL</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>SEXO</td>
+                <td>enum('M','F)</td>
+                <td>YES</td>
+                <td></td>
+                <td>NULL</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>ALTURA</td>
+                <td>decimal(3,2)</td>
+                <td>YES</td>
+                <td></td>
+                <td>NULL</td>
+                <td> </td>
+            </tr>
+            <tr>
+                <td>PESO</td>
+                <td>decimal(5,2)</td>
+                <td>YES</td>
+                <td></td>
+                <td>NULL</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>ENDEREÇO</td>
+                <td>varchar(40)</td>
+                <td>YES</td>
+                <td></td>
+                <td>NULL</td>
+                <td></td>
+            </tr>
+            
+        </table></p>
+        <h3>Renomear a tabela</h3>
+        <p><strong>ALTER TABLE</strong> parentes <strong>RENAME TO</strong> família;</p>
+        <h3>Selecionar todos os parentes onde têm a letra "E" no nome</h3>
+        <p><strong>SELECT * FROM</strong> parentes <strong>WHERE</strong> NOME <strong>LIKE (% E %)</strong>;</p>
+        <h3>Selecionar os parentes que começa com a letra "P" e termina com "P"</h3>
+        <p>SLECT * FORM parentes WHERE NOME like (% P _ P%);</p>
+        <h3>Para saber o máximo de parentes da tabela parentes</h3>
+        <p><strong>SELECT COUNT(*) FROM</strong> parentes;</p>
+        <h3>Para saber o máximo de parentes com nascimento acima de 2000</h3>
+        <p><strong>SELECT COUNT(*) FROM</strong> parentes <strong>WHERE NASCIMENTO > 2000;</strong></p>
+        <h3>Para saber o parente com o peso máximo da tabela parentes</h3>
+        <p><strong>SELECT MAX(PESO) FROM</strong> parentes;</p>
+        <h3>Para retornar o nome e o peso máximo de parentes</h3>
+        <p><strong>SELECT NOME, MIN(PESO) FROM</strong> parentes <strong>WHERE peso = (SELECT MAX(PESO) FROM parentes);</strong></p>
+        <h3>Para saber a soma dos pesos da tabela parentes</h3>
+        <p><strong>SELECT SUM(PESO) FROM</strong> parentes;</p>
+        <h3>Para saber a média aritmética de peso da tabela parentes</h3>
+        <p><strong>SELECT AVG(PESO) FROM</strong> parentes;</p>
+        <h3>Para saber a soma de pesos dos parentes que moram em Sobradino</h3>
+        <p><strong>SELECT SUM(PESO) FROM</strong> parentes <strong>WHERE ENDERECO =</strong> SOBRADINHO;</p>
+        <h3>Para selecionar só a data de nascimento da tabela parentes</h3>
+        <p><strong>SELECT DISTINCT NASCIMENTO FROM</strong> parentes;</p>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>

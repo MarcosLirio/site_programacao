@@ -7,13 +7,14 @@ public class Main
 		float resultado;
 		Scanner teclado = new Scanner(System.in);
 		
-		System.out.println("Informe o seu peso: \n");
+		System.out.println("Informe o seu peso: ");
 		peso = teclado.nextFloat();
 		
-		System.out.println("Informe a sua altura: \n");
+		System.out.println("Informe a sua altura: ");
 		altura = teclado.nextFloat();
-		
+	    
 		resultado = peso / (altura * altura);
+		System.out.println("O resultado do seu IMC é: " + resultado);
 		
 		if(resultado <= 18.5) {
 		    System.out.println("Voçê está abaixo do seu peso ideal.");
